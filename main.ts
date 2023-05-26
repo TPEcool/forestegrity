@@ -1,38 +1,41 @@
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    animation.runImageAnimation(
-    plr,
-    assets.animation`walkB`,
-    200,
-    true
-    )
+function AnimationEngine (start: boolean) {
+    if (start) {
+        if (controller.left.isPressed()) {
+        	
+        } else if (controller.up.isPressed()) {
+        	
+        } else if (controller.right.isPressed()) {
+        	
+        } else if (controller.down.isPressed()) {
+        	
+        } else {
+        	
+        }
+    } else {
+    	
+    }
+}
+controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
+	
 })
-controller.anyButton.onEvent(ControllerButtonEvent.Released, function () {
-    animation.stopAnimation(animation.AnimationTypes.All, plr)
+controller.down.onEvent(ControllerButtonEvent.Released, function () {
+    resetAnim()
 })
-controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    animation.runImageAnimation(
-    plr,
-    assets.animation`walkC`,
-    200,
-    true
-    )
+controller.right.onEvent(ControllerButtonEvent.Released, function () {
+    resetAnim()
 })
-controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    animation.runImageAnimation(
-    plr,
-    assets.animation`walkD`,
-    200,
-    true
-    )
+controller.left.onEvent(ControllerButtonEvent.Released, function () {
+    resetAnim()
 })
-controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-    animation.runImageAnimation(
-    plr,
-    assets.animation`walkA`,
-    200,
-    true
-    )
+controller.up.onEvent(ControllerButtonEvent.Released, function () {
+    resetAnim()
 })
+function resetAnim () {
+    if (!(controller.left.isPressed() || controller.up.isPressed() || (controller.down.isPressed() || controller.right.isPressed()))) {
+        animation.stopAnimation(animation.AnimationTypes.All, plr)
+        plr.setImage(assets.image`char`)
+    }
+}
 let plr: Sprite = null
 plr = sprites.create(assets.image`char`, SpriteKind.Player)
 tiles.setCurrentTilemap(tilemap`forest`)

@@ -2,7 +2,8 @@
     "name": "Forestegrity",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24"
     },
     "files": [
         "main.blocks",
@@ -12,13 +13,14 @@
         "tilemap.g.jres",
         "tilemap.g.ts",
         "images.g.jres",
-        "images.g.ts"
+        "images.g.ts",
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.12.17",
+        "target": "1.12.30",
         "targetId": "arcade"
     },
     "supportedTargets": [
