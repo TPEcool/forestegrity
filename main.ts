@@ -7,28 +7,28 @@ function AnimationEngine () {
             animation.runImageAnimation(
             plr,
             assets.animation`walkC`,
-            200,
+            500,
             true
             )
         } else if (controller.up.isPressed()) {
             animation.runImageAnimation(
             plr,
             assets.animation`walkB`,
-            200,
+            500,
             true
             )
         } else if (controller.right.isPressed()) {
             animation.runImageAnimation(
             plr,
             assets.animation`walkD`,
-            200,
+            500,
             true
             )
         } else if (controller.down.isPressed()) {
             animation.runImageAnimation(
             plr,
             assets.animation`walkA`,
-            200,
+            1000,
             true
             )
         }
@@ -38,6 +38,8 @@ function ResetAnimations () {
     if (!(controller.left.isPressed() || controller.up.isPressed() || (controller.down.isPressed() || controller.right.isPressed()))) {
         animation.stopAnimation(animation.AnimationTypes.All, plr)
         plr.setImage(assets.image`char`)
+    } else {
+        AnimationEngine()
     }
 }
 controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
